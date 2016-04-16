@@ -1,5 +1,5 @@
 {
-    "name": "ddeboer/imap",
+    "name": "sitex/imap",
     "description": "Object-oriented IMAP for PHP",
     "keywords": [ "email", "mail", "imap" ],
     "license": "MIT",
@@ -10,8 +10,18 @@
         },
         {
             "name": "Community contributors",
-            "homepage": "https://github.com/ddeboer/imap/graphs/contributors"
+            "homepage": "https://github.com/sitex/imap"
         }   
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sitex/imap"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/sitex/cakephp-imap"
+        }
     ],
     "require": {
         "php": ">=5.4.0",
@@ -25,8 +35,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Ddeboer\\Imap\\": "src/",
-            "Ddeboer\\Imap\\Tests\\": "tests/"
+            "Sitex\\Imap\\": "src/",
+            "Sitex\\Imap\\Tests\\": "tests/"
         }
     }
 }
