@@ -35,8 +35,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Sitex\\Imap\\": "src/",
-            "Sitex\\Imap\\Tests\\": "tests/"
+            "Ddeboer\\Imap\\": "src/",
+            "Ddeboer\\Imap\\Tests\\": "tests/"
         }
     }
 }
