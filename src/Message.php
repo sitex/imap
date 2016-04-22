@@ -325,6 +325,22 @@ class Message extends Message\Part
     }
 
     /**
+     * Get message IP (from headers)
+     *
+     * @return array
+     */
+    public function getIp()
+    {
+        preg_match_all(
+            '/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/',
+            $this->getHeadersRaw(),
+            $ip_matches
+        );
+
+        return $ip_matches[0];
+    }
+
+    /**
      * Load message structure
      */
     private function loadStructure()
