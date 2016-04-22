@@ -88,6 +88,38 @@ class Message extends Message\Part
     }
 
     /**
+     * Set Flag
+     *
+     * @param string $flag
+     *
+     * @return bool
+     */
+    public function setFlag($flag = '')
+    {
+        return imap_setflag_full(
+            $this->stream,
+            $this->messageNumber,
+            $flag
+        );
+    }
+
+    /**
+     * Clear Flag
+     *
+     * @param string $flag
+     *
+     * @return bool
+     */
+    public function clearFlag($flag = '')
+    {
+        return imap_clearflag_full(
+            $this->stream,
+            $this->messageNumber,
+            $flag
+        );
+    }
+
+    /**
      * Get date (from headers)
      *
      * @return \DateTime
