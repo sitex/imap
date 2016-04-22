@@ -189,6 +189,25 @@ class Message extends Message\Part
     }
 
     /**
+     * Get message headers Raw
+     *
+     * @return Message\Headers
+     */
+    public function getHeadersRaw()
+    {
+        if (null === $this->headers_raw) {
+            // imap_header is much faster than imap_fetchheader
+            // imap_header returns only a subset of all mail headers,
+            // but it does include the message flags.
+            $headers = imap_fetchheader($this->stream, imap_msgno($this->stream, $this->messageNumber));
+            $this->headers_raw = $headers;
+            //$this->headers = new Message\Headers($headers);
+        }
+
+        return $this->headers_raw;
+    }
+
+    /**
      * Get body HTML
      *
      * @return string | null Null if message has no HTML message part
