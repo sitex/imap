@@ -13,6 +13,7 @@ use Ddeboer\Imap\Exception\MessageMoveException;
 class Message extends Message\Part
 {
     private $headers;
+    private $headers_raw;
     private $attachments;
 
     /**
