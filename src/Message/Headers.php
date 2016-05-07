@@ -54,6 +54,8 @@ class Headers extends Parameters
                 $value = preg_replace('/([^\(]*)\(.*\)/', '$1', $value);
 
                 return new \DateTime($value);
+            case 'reply_to':
+                // no break
             case 'from':
                 return $this->decodeEmailAddress(current($value));
             case 'to':
