@@ -49,6 +49,7 @@ class Headers extends Parameters
                 // no break
             case 'unseen':
                 return (bool)trim($value);
+            case 'maildate':
             case 'date':
                 $value = $this->decode($value);
                 $value = preg_replace('/([^\(]*)\(.*\)/', '$1', $value);

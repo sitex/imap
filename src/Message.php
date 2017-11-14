@@ -322,6 +322,8 @@ class Message extends Message\Part
         if (!imap_delete($this->stream, $this->messageNumber, \FT_UID)) {
             throw new MessageDeleteException($this->messageNumber);
         }
+
+        imap_expunge($this->stream);
     }
 
     /**
@@ -362,6 +364,17 @@ class Message extends Message\Part
      * @return array
      */
     public function getIp()
+    {
+        preg_match_all(
+            '/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/',
+            $this->getHeadersRaw(),
+            $ip_matches
+        );
+
+        return $ip_matches[0];
+    }
+
+    public function getReceived()
     {
         preg_match_all(
             '/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/',

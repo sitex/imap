@@ -1,41 +1,41 @@
 <?php
 
-namespace Ddeboer\Imap\Search\Email;
+namespace Ddeboer\Imap\Search\Header;
 
 use Ddeboer\Imap\Search\AbstractCondition;
 
 /**
  * Represents an email condition.
  */
-abstract class AbstractEmail extends AbstractCondition
+abstract class AbstractHeader extends AbstractCondition
 {
     /**
      * Email address for the condition.
      *
      * @var string
      */
-    protected $email;
+    protected $header;
 
     /**
      * Constructor
      *
-     * @param string $email Optional email address for the condition.
+     * @param string $header header address for the condition.
      */
-    public function __construct($email = null)
+    public function __construct($header = null)
     {
-        if ($email) {
-            $this->setEmail($email);
+        if ($header) {
+            $this->setHeader($header);
         }
     }
 
     /**
      * Sets the email address for the condition.
      *
-     * @param string $email
+     * @param string $header
      */
-    public function setEmail($email)
+    public function setHeader($header)
     {
-        $this->email = $email;
+        $this->header = $header;
     }
 
     /**
@@ -45,6 +45,6 @@ abstract class AbstractEmail extends AbstractCondition
      */
     public function __toString()
     {
-        return $this->getKeyword() . ' "' . $this->email . '"';
+        return 'HEADER ' . $this->getKeyword() . ' "' . $this->header . '"';
     }
 }
